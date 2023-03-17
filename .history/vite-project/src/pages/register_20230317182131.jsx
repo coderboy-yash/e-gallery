@@ -6,10 +6,6 @@ const Register = () => {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
-  const login = (e) => {
-    e.preventDefault();
-    navigate("/login");
-  };
   const handleSubmit = (e) => {
     e.preventDefault();
     // console.log(import.meta.env.VITE_REACT_APP_BASE_URL);

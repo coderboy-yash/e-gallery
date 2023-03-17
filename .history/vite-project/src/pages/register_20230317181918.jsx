@@ -6,10 +6,6 @@ const Register = () => {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
-  const login = (e) => {
-    e.preventDefault();
-    navigate("/login");
-  };
   const handleSubmit = (e) => {
     e.preventDefault();
     // console.log(import.meta.env.VITE_REACT_APP_BASE_URL);
@@ -39,7 +35,7 @@ const Register = () => {
       <div className="h-screen w-3/4  m-auto flex justify-center p-10 ">
         <form
           onSubmit={(e) => handleSubmit(e)}
-          className="flex flex-col justify-center items-center bg-white gap-5 m-8 p-10 rounded-lg "
+          className="flex flex-col justify-center items-center bg-white gap-10 m-8 p-10 rounded-lg "
         >
           <h1>register Here</h1>
           <input
@@ -69,10 +65,7 @@ const Register = () => {
           >
             submit
           </button>
-          <button
-            onClick={(e) => login(e)}
-            className="p-2 outline-orange-300 border-orange-900 border-2 w-60 bg-amber-900 text-white hover:bg-amber-600 active:bg-amber-800"
-          >
+          <button className="p-2 outline-orange-300 border-orange-900 border-2 w-60 bg-amber-900 text-white hover:bg-amber-600 active:bg-amber-800">
             registered user/login
           </button>
         </form>

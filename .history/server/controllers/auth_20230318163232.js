@@ -18,7 +18,6 @@ export const register = async (req, res, next) => {
 
     res.status(200).send("user has been created.");
   } catch (err) {
-    res.status(500).send("unable to register");
     console.log(err);
   }
 };

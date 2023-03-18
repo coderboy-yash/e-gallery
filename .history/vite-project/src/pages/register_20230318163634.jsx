@@ -36,9 +36,7 @@ const Register = () => {
         }
       })
       .catch((error) => {
-        console.log(error.response.status);
-        if (error.response.status == 500)
-          toast.error("user already present better with the login button");
+        console.log(error);
       });
   };
   return (

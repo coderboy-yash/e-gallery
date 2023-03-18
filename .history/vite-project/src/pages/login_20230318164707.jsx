@@ -1,45 +1,48 @@
 import React, { useState } from "react";
-import toast, { Toaster } from "react-hot-toast";
 import Axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { login, selectUser } from "../features/userSlice";
 import { useNavigate } from "react-router-dom";
-const Register = () => {
+import toast, { Toaster } from "react-hot-toast";
+const Login = () => {
+  const user = useSelector(selectUser);
   const navigate = useNavigate();
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
-  const [email, setEmail] = useState("");
-  const login = (e) => {
+
+  const dispatch = useDispatch();
+  const register = (e) => {
     e.preventDefault();
-    navigate("/login");
+    navigate("/register");
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    // console.log(import.meta.env.VITE_REACT_APP_BASE_URL);
-    if (name == "" && email == "" && password == "") {
-      toast.error("please enter info then submit");
-      // return;
-    }
-    if (name === "") toast.error("name cannot be empty! ");
-    if (password.length < 4) {
-      if (password == "") toast.error("password cannot be empty");
-      else toast.error("password should contain atleast 4 characters");
-    }
-    if (email === "") toast.error("email cannot be empty! ");
-    Axios.post(`${import.meta.env.VITE_REACT_APP_BASE_URL}/api/auth/register`, {
+
+    Axios.post(`${import.meta.env.VITE_REACT_APP_BASE_URL}/api/auth/login`, {
       username: name,
-      email,
       password,
     })
       .then((response) => {
         console.log(response.status);
-        if (response.status == 200) {
-          navigate("/login");
-        }
+        if (response.status == 200) navigate("/gallery");
+        if (response.status == 201)
+          toast.error("user name or password is incorrect");
       })
       .catch((error) => {
-        console.log(error.response.status);
-        if (error.response.status == 500)
-          toast.error("user already present better with the login button");
+        console.log(error);
       });
+
+    dispatch(
+      login({
+        name: name,
+
+        password: password,
+        loggedIn: true,
+      })
+    );
+  };
+  const moveToGallery = () => {
+    user ? navigate("/gallery") : navigate("/register");
   };
   return (
     <div
@@ -49,13 +52,13 @@ const Register = () => {
           "url(https://cdn.pixabay.com/photo/2018/08/31/18/17/fantasy-3645263_960_720.jpg)",
       }}
     >
-      <Toaster></Toaster>
+      <Toast></Toast>
       <div className="h-screen w-3/4  m-auto flex justify-center p-10 ">
         <form
           onSubmit={(e) => handleSubmit(e)}
-          className="flex flex-col justify-center items-center bg-white gap-5 m-8 p-10 rounded-lg "
+          className="flex flex-col justify-center items-center bg-white gap-10 m-8 p-10 rounded-lg "
         >
-          <h1>register Here</h1>
+          <h1>Login Here</h1>
           <input
             className="p-2 outline-orange-300 border-orange-900 border-2 rounded-md"
             type="name"
@@ -63,13 +66,7 @@ const Register = () => {
             onChange={(e) => setName(e.target.value)}
             value={name}
           />
-          <input
-            className="p-2 outline-orange-300 border-orange-900 border-2 rounded-md"
-            type="email"
-            placeholder="email"
-            onChange={(e) => setEmail(e.target.value)}
-            value={email}
-          />
+
           <input
             className="p-2 outline-orange-300 border-orange-900 border-2 rounded-md"
             type="password"
@@ -84,10 +81,10 @@ const Register = () => {
             submit
           </button>
           <button
-            onClick={(e) => login(e)}
             className="p-2 outline-orange-300 border-orange-900 border-2 w-60 bg-amber-900 text-white hover:bg-amber-600 active:bg-amber-800"
+            onClick={(e) => register(e)}
           >
-            registered user/login
+            new user! --Register here--
           </button>
         </form>
       </div>
@@ -95,4 +92,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default Login;

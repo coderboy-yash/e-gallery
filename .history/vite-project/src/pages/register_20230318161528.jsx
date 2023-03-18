@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 import Axios from "axios";
 import { useNavigate } from "react-router-dom";
 const Register = () => {
@@ -14,31 +14,20 @@ const Register = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // console.log(import.meta.env.VITE_REACT_APP_BASE_URL);
-    if (name == "" && email == "" && password == "") {
-      toast.error("please enter info then submit");
-      // return;
-    }
     if (name === "") toast.error("name cannot be empty! ");
-    if (password.length < 4) {
-      if (password == "") toast.error("password cannot be empty");
-      else toast.error("password should contain atleast 4 characters");
-    }
-    if (email === "") toast.error("email cannot be empty! ");
     Axios.post(`${import.meta.env.VITE_REACT_APP_BASE_URL}/api/auth/register`, {
       username: name,
       email,
       password,
     })
       .then((response) => {
-        console.log(response.status);
+        console.log(response);
         if (response.status == 200) {
           navigate("/login");
         }
       })
       .catch((error) => {
-        console.log(error.response.status);
-        if (error.response.status == 500)
-          toast.error("user already present better with the login button");
+        console.log(error);
       });
   };
   return (
@@ -49,7 +38,6 @@ const Register = () => {
           "url(https://cdn.pixabay.com/photo/2018/08/31/18/17/fantasy-3645263_960_720.jpg)",
       }}
     >
-      <Toaster></Toaster>
       <div className="h-screen w-3/4  m-auto flex justify-center p-10 ">
         <form
           onSubmit={(e) => handleSubmit(e)}

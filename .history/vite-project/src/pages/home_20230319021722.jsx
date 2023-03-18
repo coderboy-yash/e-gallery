@@ -10,33 +10,24 @@ const Home = () => {
     navigate("/register");
   };
   return (
-    <div className="flex flex-wrap  border-blue-300  p-6 bg-gradient-to-r from-emerald-500 to-amber-200">
-      <div
-        className="h-[33rem]   w-screen sm:w-1/2   items-center flex flex-col  p-4
-        bg-center bg-cover bg-no-repeat
-      
-       "
-        style={{
-          backgroundImage:
-            "url(https://img.freepik.com/free-vector/blue-curve-background_53876-113112.jpg?w=740&t=st=1679172674~exp=1679173274~hmac=b768a66ebfc89747a7dec2668a3c8200be8c41e59ebe59f1f87b4c97bd11d56d)",
-        }}
-      >
-        <h1 className="p-5 text-4xl mb-16 bg-gradient-to-r from-emerald-500 to-yellow-300 rounded-md text-white mt-10 ">
+    <div className="flex flex-wrap  border-green-500 border-8 p-6 bg-gradient-to-b from-green-500 to-teal-200">
+      <div className="h-[33rem]  bg-gradient-to-br from-green-200 to-teal-100 w-screen sm:w-1/2   items-center flex flex-col  p-4 ">
+        <h1 className="p-5 text-4xl mb-16 text-green-900">
           Welcome to your e-gallery
         </h1>
-        <h2 className="text-xl text-gray-700 mb-16">
+        <h2 className="text-xl text-gray-700 mb-8">
           A place where you can store your all images online from insta,
           unsplash, pc or anywhere and get shareable links.
         </h2>
         <div className="flex ">
           <button
-            className="p-3 m-3 bg-blue-400 text-white px-5"
+            className="p-3 m-3 bg-green-500 text-white px-5"
             onClick={handleLogin}
           >
             login
           </button>
           <button
-            className="p-3 m-3 bg-blue-400 text-white px-5"
+            className="p-3 m-3 bg-green-500 text-white px-5"
             onClick={handleRegister}
           >
             register

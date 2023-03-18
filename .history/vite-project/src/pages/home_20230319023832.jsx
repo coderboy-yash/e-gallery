@@ -30,13 +30,13 @@ const Home = () => {
         </h2>
         <div className="flex ">
           <button
-            className="p-3 m-3 bg-blue-400 text-white px-5"
+            className="p-3 m-3 bg-gradient-to-r from-emerald-500 to-yellow-300 text-white px-5"
             onClick={handleLogin}
           >
             login
           </button>
           <button
-            className="p-3 m-3 bg-blue-400 text-white px-5"
+            className="p-3 m-3 bg-gradient-to-r from-emerald-500 to-yellow-300 text-white px-5"
             onClick={handleRegister}
           >
             register

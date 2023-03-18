@@ -90,7 +90,7 @@ function Gallery() {
         className="bg-center bg-cover bg-no-repeat h-screen    w-[99vw]   "
         style={{
           backgroundImage:
-            "url(https://cdn.pixabay.com/photo/2018/03/09/18/39/dandelion-3212292_960_720.jpg)",
+            "url(https://img.freepik.com/free-vector/watercolor-photo-collage-design_52683-82542.jpg?size=626&ext=jpg&uid=R96739404&ga=GA1.1.1153320190.1678966122&semt=sph)",
         }}
       >
         <button

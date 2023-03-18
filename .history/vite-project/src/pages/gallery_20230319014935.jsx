@@ -87,7 +87,7 @@ function Gallery() {
   return (
     <div className="App">
       <div
-        className="bg-center bg-cover bg-no-repeat h-screen    w-[99vw]   "
+        className="bg-center bg-cover bg-no-repeat h-screen    w-screen   "
         style={{
           backgroundImage:
             "url(https://cdn.pixabay.com/photo/2018/03/09/18/39/dandelion-3212292_960_720.jpg)",

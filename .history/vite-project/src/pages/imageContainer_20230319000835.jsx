@@ -1,25 +1,8 @@
 import React, { useEffect, useState } from "react";
 import eye from "../assets/eye.png";
 
-const ImageContainer = ({
-  image,
-  format,
-  height,
-  width,
-  bytes,
-  setImages,
-  images,
-}) => {
-  // console.log(image);
-  const deleteImage = (e) => {
-    e.preventDefault();
-    // console.log(image, "   hello", images[0].url);
-    const newimg = images.filter((img) => img.url !== image);
-    // setImages();
-    // console.log(newimg);
-    setImages(newimg);
-    console.log(images);
-  };
+const ImageContainer = ({ image, format, height, width, bytes }) => {
+  console.log(image);
   const [count, setCount] = useState(0);
   const counting = (e) => {
     e.preventDefault();
@@ -49,9 +32,6 @@ const ImageContainer = ({
             {count}
           </div>
         </h2>
-        <button className="text-black" onClick={deleteImage}>
-          delete
-        </button>
       </div>
     </div>
   );

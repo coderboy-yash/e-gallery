@@ -18,7 +18,28 @@ function Gallery() {
     dispatch(logout());
   };
 
+  // ////////////////////////////get request
+  // const [data, setData] = useState(null);
+
+  // Axios.get(
+  //   `${import.meta.env.VITE_REACT_APP_BASE_URL}/api/auth/user?user=${user.name}`
+  // )
+  //   .then(function (response) {
+  //     console.log(response.data[0].images);
+  //     // setData(response.data[0]);
+  //   })
+  //   .catch(function (error) {
+  //     console.log(error);
+  //   });
+  // console.log(data);
+
+  // ///////////////////
   const [images, setImages] = useState(null);
+  // const [url, setUrl] = useState("");
+  // const [format, setFormat] = useState("");
+  // const [height, setHeight] = useState(0);
+  // const [width, setWidth] = useState(0);
+  // const [bytes, setBytes] = useState(0);
 
   const [imageToRemove, setImageToRemove] = useState(null);
 
@@ -45,21 +66,42 @@ function Gallery() {
             toast.success("image uploaded successfully");
           }, 2000);
           return () => clearTimeout(timer);
+
+          // setUrl(result.info.secure_url);
+          // setFormat(result.info.format);
+          // setHeight(result.info.height);
+          // setWidth(result.info.width);
+          // setBytes(result.info.bytes);
         }
       }
     );
-
+    // open widget
     myWidget.open();
   }
   useEffect(() => {
+    // toast.success("image uploaded successfully");
     console.log(images);
     if (images === null) return;
-
+    // toast.success("image uploaded successfully");
     Axios.put(`${import.meta.env.VITE_REACT_APP_BASE_URL}/api/auth/image`, {
       username: user.name,
       image: images,
     })
       .then((response) => {
+        // setData((prev) => {})
+
+        // Axios.get(
+        //   `${import.meta.env.VITE_REACT_APP_BASE_URL}/api/auth/user?user=${
+        //     user.name
+        //   }`
+        // )
+        //   .then(function (response) {
+        //     console.log(response.data[0].images);
+        //     setData(response.data[0]);
+        //   })
+        //   .catch(function (error) {
+        //     console.log(error);
+        //   });
         console.log(response.data);
       })
       .catch((error) => {
@@ -83,6 +125,10 @@ function Gallery() {
         console.log(error);
       });
   }, []);
+
+  // useEffect(() => {
+  //   console.log(data);
+  // }, [data]);
 
   return (
     <div className="App">
@@ -141,8 +187,6 @@ function Gallery() {
               height={image.height}
               width={image.width}
               bytes={image.bytes}
-              setImages={setImages}
-              images={images}
             />
           ))}
         </div>

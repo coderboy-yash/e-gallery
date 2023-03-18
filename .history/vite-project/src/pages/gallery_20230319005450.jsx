@@ -142,7 +142,6 @@ function Gallery() {
               width={image.width}
               bytes={image.bytes}
               setImages={setImages}
-              images={images}
             />
           ))}
         </div>

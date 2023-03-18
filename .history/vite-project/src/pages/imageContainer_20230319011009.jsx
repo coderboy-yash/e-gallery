@@ -10,14 +10,11 @@ const ImageContainer = ({
   setImages,
   images,
 }) => {
-  // console.log(image);
+  // console.log(images);
   const deleteImage = (e) => {
     e.preventDefault();
-    // console.log(image, "   hello", images[0].url);
-    const newimg = images.filter((img) => img.url !== image);
-    // setImages();
-    // console.log(newimg);
-    setImages(newimg);
+    const newimg = images.filter((img) => img !== image);
+    setImages();
     console.log(images);
   };
   const [count, setCount] = useState(0);

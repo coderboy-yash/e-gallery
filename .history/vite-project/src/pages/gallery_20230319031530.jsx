@@ -93,9 +93,9 @@ function Gallery() {
             "url(https://cdn.pixabay.com/photo/2018/03/09/18/39/dandelion-3212292_960_720.jpg)",
         }}
       >
-        <div className="md:ml-[80vw] sm:ml-[60vw] ml-[50vw]">
+        <div className="ml-[8 0rem]">
           <button
-            className="p-3  bg-orange-300 px-5    text-black"
+            className="p-3 m-3 bg-orange-300 px-5 -mx-0   text-black"
             onClick={(e) => handleLogout(e)}
           >
             logout

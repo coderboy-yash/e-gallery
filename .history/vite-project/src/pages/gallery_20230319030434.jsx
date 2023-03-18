@@ -87,23 +87,20 @@ function Gallery() {
   return (
     <div className="App">
       <div
-        className="bg-center bg-cover bg-no-repeat h-screen w-[98.5vw] p-10   "
+        className="bg-center bg-cover bg-no-repeat h-screen w-[98.5vw] p-4   "
         style={{
           backgroundImage:
             "url(https://cdn.pixabay.com/photo/2018/03/09/18/39/dandelion-3212292_960_720.jpg)",
         }}
       >
-        <div className="md:ml-[80vw] sm:ml-[60vw] ml-[50vw]">
-          <button
-            className="p-3  bg-orange-300 px-5    text-black"
-            onClick={(e) => handleLogout(e)}
-          >
-            logout
-          </button>
-        </div>
-
+        <button
+          className="p-3 m-3 bg-orange-300 px-5 mx-9   text-black"
+          onClick={(e) => handleLogout(e)}
+        >
+          logout
+        </button>
         <Toaster></Toaster>
-        <div className="text-white flex flex-col  justify-center items-center m-auto   md:mt-4 md:ml-[40rem] w-[20rem] sm:w-[25rem]  gap-8 p-6 drop-shadow-lg shadow-yellow-500 ">
+        <div className="text-white flex flex-col  justify-center items-center m-auto   md:mt-4 md:ml-[40rem] w-[25rem]  gap-8 p-6 drop-shadow-lg shadow-yellow-500">
           <h1 className="text-[3rem]   border-b-2 border-b-amber-300">
             Welcome to your e-gallery{" "}
             <span className="text-yellow-300 ">{user.name}</span>

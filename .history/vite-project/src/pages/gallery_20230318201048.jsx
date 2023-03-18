@@ -62,11 +62,7 @@ function Gallery() {
             },
           ]);
           console.log("Done! Here is the image info: ", result);
-          const timer = setTimeout(() => {
-            toast.success("image uploaded successfully");
-          }, 2000);
-          return () => clearTimeout(timer);
-
+          toast.success("image uploaded successfully");
           // setUrl(result.info.secure_url);
           // setFormat(result.info.format);
           // setHeight(result.info.height);

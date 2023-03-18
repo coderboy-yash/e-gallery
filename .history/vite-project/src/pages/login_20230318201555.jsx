@@ -35,7 +35,7 @@ const Login = () => {
           const timer = setTimeout(() => {
             navigate("/gallery");
             console.log("This will run after 1 second!");
-          }, 2000);
+          }, 3000);
           return () => clearTimeout(timer);
         }
         if (response.status == 201)

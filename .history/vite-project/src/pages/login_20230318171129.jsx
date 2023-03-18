@@ -30,13 +30,15 @@ const Login = () => {
         if (response.status == 200) {
           {
             toast.success("login successful");
+            setTimeout(navigate("/gallery"), 10000000000);
           }
-
-          const timer = setTimeout(() => {
-            navigate("/gallery");
-            console.log("This will run after 1 second!");
-          }, 2000);
-          return () => clearTimeout(timer);
+          useEffect(() => {
+            const timer = setTimeout(() => {
+              setCount("Timeout called!");
+            }, 1000);
+            return () => clearTimeout(timer);
+          }, []);
+          // navigate("/gallery");
         }
         if (response.status == 201)
           toast.error("user name or password is incorrect");
@@ -54,9 +56,9 @@ const Login = () => {
       })
     );
   };
-  // const moveToGallery = () => {
-  //   user ? navigate("/gallery") : navigate("/register");
-  // };
+  const moveToGallery = () => {
+    user ? navigate("/gallery") : navigate("/register");
+  };
   return (
     <div
       className="bg-center bg-cover bg-no-repeat h-screen  overflow-x-hidden  w-auto "

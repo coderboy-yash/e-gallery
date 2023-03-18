@@ -11,7 +11,7 @@ const Home = () => {
   };
   return (
     <div className="flex flex-wrap  border-red-200 border-8 p-6  bg-gradient-to-b from-orange-800 to-orange-300">
-      <div className="h-[33rem]  bg-gradient-to-b from-amber-100 to-lime-50 w-screen sm:w-1/2   items-center flex flex-col  p-4 ">
+      <div className="h-[33rem]  bg-gradient-to-b from-amber-100 to-lime-50 sm:w-1/2   items-center flex flex-col  p-4 ">
         <h1 className="p-5 text-5xl mb-16">Welcome to your e-gallery</h1>
         <h2 className="text-2xl">
           A place where you can store your all images online from insta,
@@ -29,7 +29,7 @@ const Home = () => {
           </button>
         </div>
       </div>
-      <div className="w-screem sm:w-1/2">
+      <div className="w-1/2">
         <img
           src="http://res.cloudinary.com/yash-911-cloud/image/upload/v1679037703/zcz92jzbjmlzcpzczyrl.jpg"
           alt=""

@@ -66,7 +66,8 @@ function Gallery() {
             toast.success("image uploaded successfully");
           }, 2000);
           return () => clearTimeout(timer);
-
+        }
+          
           // setUrl(result.info.secure_url);
           // setFormat(result.info.format);
           // setHeight(result.info.height);

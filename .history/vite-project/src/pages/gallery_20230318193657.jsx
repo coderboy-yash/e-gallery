@@ -4,7 +4,6 @@ import { logout, selectUser } from "../features/userSlice";
 import { useNavigate } from "react-router-dom";
 import Axios from "axios";
 import ImageContainer from "./ImageContainer";
-import toast, { Toaster } from "react-hot-toast";
 function Gallery() {
   const navigate = useNavigate();
   const user = useSelector(selectUser);
@@ -62,11 +61,6 @@ function Gallery() {
             },
           ]);
           console.log("Done! Here is the image info: ", result);
-          const timer = setTimeout(() => {
-            toast.success("image uploaded successfully");
-          }, 2000);
-          return () => clearTimeout(timer);
-
           // setUrl(result.info.secure_url);
           // setFormat(result.info.format);
           // setHeight(result.info.height);
@@ -79,10 +73,8 @@ function Gallery() {
     myWidget.open();
   }
   useEffect(() => {
-    // toast.success("image uploaded successfully");
     console.log(images);
     if (images === null) return;
-    // toast.success("image uploaded successfully");
     Axios.put(`${import.meta.env.VITE_REACT_APP_BASE_URL}/api/auth/image`, {
       username: user.name,
       image: images,
@@ -145,8 +137,7 @@ function Gallery() {
         >
           logout
         </button>
-        <Toaster></Toaster>
-        <div className="text-white flex flex-col  justify-center items-center m-auto   md:mt-40 md:ml-[40rem] w-[25rem]  gap-8 p-6 drop-shadow-lg shadow-yellow-500">
+        <div className="text-white flex flex-col  justify-center items-center m-auto mt-[3rem]  md:mt-40 md:ml-[40rem] w-[25rem]  gap-8 p-6 drop-shadow-lg shadow-yellow-500">
           <h1 className="text-[3rem]  mb-[10rem] border-b-2 border-b-amber-300">
             Welcome to your e-gallery{" "}
             <span className="text-yellow-300 ">{user.name}</span>

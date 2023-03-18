@@ -62,11 +62,7 @@ function Gallery() {
             },
           ]);
           console.log("Done! Here is the image info: ", result);
-          const timer = setTimeout(() => {
-            toast.success("image uploaded successfully");
-          }, 2000);
-          return () => clearTimeout(timer);
-
+          // toast.success("image uploaded successfully");
           // setUrl(result.info.secure_url);
           // setFormat(result.info.format);
           // setHeight(result.info.height);
@@ -79,10 +75,9 @@ function Gallery() {
     myWidget.open();
   }
   useEffect(() => {
-    // toast.success("image uploaded successfully");
+    toast.success("image uploaded successfully");
     console.log(images);
     if (images === null) return;
-    // toast.success("image uploaded successfully");
     Axios.put(`${import.meta.env.VITE_REACT_APP_BASE_URL}/api/auth/image`, {
       username: user.name,
       image: images,

@@ -4,7 +4,6 @@ import { logout, selectUser } from "../features/userSlice";
 import { useNavigate } from "react-router-dom";
 import Axios from "axios";
 import ImageContainer from "./ImageContainer";
-import toast, { Toaster } from "react-hot-toast";
 function Gallery() {
   const navigate = useNavigate();
   const user = useSelector(selectUser);
@@ -62,11 +61,6 @@ function Gallery() {
             },
           ]);
           console.log("Done! Here is the image info: ", result);
-          const timer = setTimeout(() => {
-            toast.success("image uploaded successfully");
-          }, 2000);
-          return () => clearTimeout(timer);
-
           // setUrl(result.info.secure_url);
           // setFormat(result.info.format);
           // setHeight(result.info.height);
@@ -79,10 +73,8 @@ function Gallery() {
     myWidget.open();
   }
   useEffect(() => {
-    // toast.success("image uploaded successfully");
     console.log(images);
     if (images === null) return;
-    // toast.success("image uploaded successfully");
     Axios.put(`${import.meta.env.VITE_REACT_APP_BASE_URL}/api/auth/image`, {
       username: user.name,
       image: images,
@@ -133,7 +125,7 @@ function Gallery() {
   return (
     <div className="App">
       <div
-        className="bg-center bg-cover bg-no-repeat h-screen  overflow-x-hidden  w-[100vw]   "
+        className="bg-center bg-cover bg-no-repeat h-screen  overflow-x-hidden  w-screen pl-10 "
         style={{
           backgroundImage:
             "url(https://cdn.pixabay.com/photo/2018/03/09/18/39/dandelion-3212292_960_720.jpg)",
@@ -145,9 +137,8 @@ function Gallery() {
         >
           logout
         </button>
-        <Toaster></Toaster>
-        <div className="text-white flex flex-col  justify-center items-center m-auto   md:mt-40 md:ml-[40rem] w-[25rem]  gap-8 p-6 drop-shadow-lg shadow-yellow-500">
-          <h1 className="text-[3rem]  mb-[10rem] border-b-2 border-b-amber-300">
+        <div className="text-white flex flex-col  justify-center items-center ml-[40rem] mt-40 w-[25rem]  gap-4 drop-shadow-lg shadow-yellow-500">
+          <h1 className="text-[3rem]  mb-8 border-b-2 border-b-amber-300">
             Welcome to your e-gallery{" "}
             <span className="text-yellow-300 ">{user.name}</span>
           </h1>
@@ -175,11 +166,11 @@ function Gallery() {
         </div>
       </div>
 
-      <div className="images-preview-container m-auto">
+      <div className="images-preview-container">
         <div className="flex  justify-center items-center text-xs p-4">
           <h1>View your uploaded images in the gallery</h1>
         </div>
-        <div className="flex flex-wrap justify-center gap-6 p-4 items-end">
+        <div className="flex flex-wrap gap-8 p-4">
           {images?.map((image, index) => (
             <ImageContainer
               image={image.url}
